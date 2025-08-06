@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soringa - Farines Enrichies Naturelles</title>
+    <meta name="description" content="Farines Soringa - La nutrition complète pour toute la famille. Source naturelle de nutriments pour une alimentation saine.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Notification -->
+    <div id="purchase-notification" class="purchase-notification">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="notification-text">Message...</span>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="./images/logo.png" alt="Logo Soringa" class="h-12">
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#accueil" class="text-green-800 font-medium hover:text-green-600 transition">Accueil</a>
+                <a href="#a-propos" class="text-gray-600 hover:text-green-600 transition">À propos</a>
+                <a href="#produits" class="text-gray-600 hover:text-green-600 transition">Produits</a>
+                <a href="#points-vente" class="text-gray-600 hover:text-green-600 transition">Points de vente</a>
+                <a href="#temoignages" class="text-gray-600 hover:text-green-600 transition">Témoignages</a>
+                <a href="#contact" class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">Contact</a>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white w-full px-4 py-2 shadow-lg">
+            <a href="#accueil" class="block py-2 text-green-800 font-medium">Accueil</a>
+            <a href="#a-propos" class="block py-2 text-gray-600">À propos</a>
+            <a href="#produits" class="block py-2 text-gray-600">Produits</a>
+            <a href="#points-vente" class="block py-2 text-gray-600">Points de vente</a>
+            <a href="#temoignages" class="block py-2 text-gray-600">Témoignages</a>
+            <a href="#contact" class="block py-2 bg-green-700 text-white rounded-md text-center my-2">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="accueil" class="relative bg-green-50 overflow-hidden">
+            <div class="container mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-4">Farines Soringa</h1>
+                    <p class="text-xl text-gray-700 mb-6">La nutrition complète pour toute la famille</p>
+                    <p class="text-lg text-gray-600 mb-8">Une source naturelle de nutriments pour une alimentation saine</p>
+                    <div class="flex space-x-4">
+                        <a href="#produits" class="bg-green-700 text-white px-6 py-3 rounded-md hover:bg-green-600 transition">Nos produits</a>
+                        <a href="#points-vente" class="border border-green-700 text-green-700 px-6 py-3 rounded-md hover:bg-green-50 transition">Points de vente</a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 relative">
+                    <div class="relative h-64 md:h-96 overflow-hidden rounded-lg shadow-xl">
+                        <img src="./images/baobab-banniere1.jpeg" alt="Farine Soringa" class="absolute inset-0 w-full h-full object-cover hero-slide active">
+                        <img src="./images/moringa-banniere2.jpeg" alt="Farine Soringa" class="absolute inset-0 w-full h-full object-cover hero-slide">
+                        <img src="./images/produits1.jpg" alt="Produits Soringa" class="absolute inset-0 w-full h-full object-cover hero-slide">
+                        <img src="./images/produits2.jpeg" alt="Produits Soringa" class="absolute inset-0 w-full h-full object-cover hero-slide">
+                    </div>
+                    <div class="flex justify-center mt-4 space-x-2">
+                        <button class="hero-dot w-3 h-3 rounded-full bg-green-700" data-slide="0"></button>
+                        <button class="hero-dot w-3 h-3 rounded-full bg-gray-300" data-slide="1"></button>
+                        <button class="hero-dot w-3 h-3 rounded-full bg-gray-300" data-slide="2"></button>
+                        <button class="hero-dot w-3 h-3 rounded-full bg-gray-300" data-slide="3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="a-propos" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold text-green-800 mb-6">À propos de Soringa</h2>
+                    <p class="text-lg text-gray-700 mb-8">
+                        Les Farines Enrichies Soringa sont un aliment complet, riche en fibres, vitamines et oligoéléments, conçu pour renforcer le système immunitaire et régénérer les cellules. Nous nous engageons à fournir une nutrition de qualité, accessible à tous, pour améliorer la santé et le bien-être des familles.
+                    </p>
+                    <a href="#contact" class="inline-block bg-green-700 text-white px-6 py-3 rounded-md hover:bg-green-600 transition">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="produits" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Nos Produits</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="./images/produits19.jpg" alt="Farine Soringa avec soja" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-green-800 mb-4">Farine Soringa avec soja</h3>
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-gray-700 mb-2">🌿 Ingrédients :</h4>
+                                <p class="text-gray-600">Farine de mais, Farine de mil, Farine de soja, Poudre de feuille de moringa, Pulpe de Baobab, Sucre roux, Sel iodé et fluoré</p>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-gray-700 mb-2">💪 Bienfaits :</h4>
+                                <p class="text-gray-600">Brûle le mauvais cholestérol. Protège contre l'AVC, l'hypertension et les crises cardiaques. Renforce l'immunité.</p>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-gray-700 mb-2">👶 Recommandée pour :</h4>
+                                <p class="text-gray-600">Les enfants malnutris, souffrant de kwashiorkor ou d'une alimentation insuffisante. Les personnes atteintes de paludisme, d'infections ou de légacida. Convient à toute la famille.</p>
+                            </div>
+                            
+                            <!-- Product Options -->
+                            <div class="mb-6">
+                                <h4 class="font-semibold text-gray-700 mb-3">📦 Choisissez votre format :</h4>
+                                <div class="space-y-3">
+                                    <div class="product-option" data-product="soja-400g">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <span class="font-medium">400g</span>
+                                                <span class="text-gray-500 text-sm ml-2">Format familial</span>
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="text-green-700 font-bold">1500F</span>
+                                            </div>
+                                        </div>
+                                        <button class="buy-btn w-full mt-2 bg-green-700 text-white py-2 rounded-md hover:bg-green-600 transition" data-product="soja-400g" data-name="Farine Soringa avec soja 400g" data-price="1500">
+                                            <i class="fab fa-whatsapp mr-2"></i>Acheter
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="product-option" data-product="soja-1kg">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <span class="font-medium">1kg</span>
+                                                <span class="text-gray-500 text-sm ml-2">Format économique</span>
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="text-green-700 font-bold">3000F</span>
+                                            </div>
+                                        </div>
+                                        <button class="buy-btn w-full mt-2 bg-green-700 text-white py-2 rounded-md hover:bg-green-600 transition" data-product="soja-1kg" data-name="Farine Soringa avec soja 1kg" data-price="3000">
+                                            <i class="fab fa-whatsapp mr-2"></i>Acheter
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="./images/produits15.jpg" alt="Farine Soringa sans soja" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-green-800 mb-4">Farine Soringa sans soja</h3>
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-gray-700 mb-2">🌿 Ingrédients :</h4>
+                                <p class="text-gray-600">Farine de mais, Farine de mil, Poudre de feuille de moringa, Pulpe de Baobab, Sucre roux, Sel iodé et fluoré</p>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-gray-700 mb-2">💪 Bienfaits :</h4>
+                                <p class="text-gray-600">Brûle le mauvais cholestérol. Protège contre l'AVC, l'hypertension et les crises cardiaques. Renforce l'immunité.</p>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-gray-700 mb-2">👶 Recommandée pour :</h4>
+                                <p class="text-gray-600">Les enfants malnutris, souffrant de kwashiorkor ou d'une alimentation insuffisante. Les personnes atteintes de paludisme, d'infections ou de légacida. Convient à toute la famille.</p>
+                            </div>
+                            
+                            <!-- Product Options -->
+                            <div class="mb-6">
+                                <h4 class="font-semibold text-gray-700 mb-3">📦 Choisissez votre format :</h4>
+                                <div class="space-y-3">
+                                    <div class="product-option" data-product="sans-soja-400g">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <span class="font-medium">400g</span>
+                                                <span class="text-gray-500 text-sm ml-2">Format familial</span>
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="text-green-700 font-bold">1500F</span>
+                                            </div>
+                                        </div>
+                                        <button class="buy-btn w-full mt-2 bg-green-700 text-white py-2 rounded-md hover:bg-green-600 transition" data-product="sans-soja-400g" data-name="Farine Soringa sans soja 400g" data-price="1500">
+                                            <i class="fab fa-whatsapp mr-2"></i>Acheter
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="product-option" data-product="sans-soja-1kg">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <span class="font-medium">1kg</span>
+                                                <span class="text-gray-500 text-sm ml-2">Format économique</span>
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="text-green-700 font-bold">3000F</span>
+                                            </div>
+                                        </div>
+                                        <button class="buy-btn w-full mt-2 bg-green-700 text-white py-2 rounded-md hover:bg-green-600 transition" data-product="sans-soja-1kg" data-name="Farine Soringa sans soja 1kg" data-price="3000">
+                                            <i class="fab fa-whatsapp mr-2"></i>Acheter 
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutritional Values Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Valeur nutritionnelle pour 100ml de bouillie</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">🌾 Formule avec soja :</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex justify-between"><span>Énergie :</span> <span>378,2 kcal</span></li>
+                            <li class="flex justify-between"><span>Protéines :</span> <span>13,7 g</span></li>
+                            <li class="flex justify-between"><span>Lipides :</span> <span>7,2 g</span></li>
+                            <li class="flex justify-between"><span>Glucides :</span> <span>66,3 g</span></li>
+                            <li class="flex justify-between"><span>Fibres :</span> <span>6,9 g</span></li>
+                            <li class="flex justify-between"><span>Sel :</span> <span>0,50 g</span></li>
+                            <li class="flex justify-between"><span>Minéraux :</span> <span>216 mg</span></li>
+                            <li class="flex justify-between"><span>Vitamines :</span> <span>2,15 mg</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">🌾 Formule sans soja :</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex justify-between"><span>Énergie :</span> <span>368,5 kcal</span></li>
+                            <li class="flex justify-between"><span>Protéines :</span> <span>8,9 g</span></li>
+                            <li class="flex justify-between"><span>Lipides :</span> <span>5,0 g</span></li>
+                            <li class="flex justify-between"><span>Glucides :</span> <span>73,6 g</span></li>
+                            <li class="flex justify-between"><span>Fibres :</span> <span>6,7 g</span></li>
+                            <li class="flex justify-between"><span>Sel :</span> <span>0,50 g</span></li>
+                            <li class="flex justify-between"><span>Minéraux :</span> <span>210 mg</span></li>
+                            <li class="flex justify-between"><span>Vitamines :</span> <span>1,91 mg</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Section -->
+        <section id="mode-emploi" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-bold text-center text-green-800 mb-8">Mode d'emploi</h2>
+                <div class="usage-container">
+                    <div class="text-center mb-8">
+                        <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
+                            <i class="fas fa-utensils text-3xl text-green-700"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-green-800 mb-4">Préparation de votre bouillie nutritive</h3>
+                        <p class="text-gray-700 text-lg">Suivez ces étapes simples pour préparer une délicieuse bouillie Soringa</p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="usage-step">
+                            <div class="flex items-start">
+                                <div class="step-number">1</div>
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-bold text-green-800 mb-2">
+                                        <i class="fas fa-mixing mr-2"></i>Mélange
+                                    </h4>
+                                    <p class="text-gray-700">Mélangez la farine Soringa avec de l'eau dans une casserole. Utilisez environ 3-4 cuillères à soupe de farine pour 250ml d'eau.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="usage-step">
+                            <div class="flex items-start">
+                                <div class="step-number">2</div>
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-bold text-green-800 mb-2">
+                                        <i class="fas fa-fire mr-2"></i>Cuisson
+                                    </h4>
+                                    <p class="text-gray-700">Chauffez à feu moyen et remuez constamment jusqu'à obtention de l'épaisseur souhaitée (environ 5-10 minutes).</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="usage-step">
+                            <div class="flex items-start">
+                                <div class="step-number">3</div>
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-bold text-green-800 mb-2">
+                                        <i class="fas fa-heart mr-2"></i>Service
+                                    </h4>
+                                    <p class="text-gray-700">Servez tiède. Vous pouvez l'enrichir avec du lait, du miel ou des fruits selon vos préférences.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-white rounded-xl border-2 border-green-200">
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-info text-green-700"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-green-800">Conseil nutritionnel</h4>
+                        </div>
+                        <p class="text-gray-700">Cette bouillie peut être consommée par toute la famille : enfants dès 6 mois, femmes enceintes, personnes âgées. Idéale au petit-déjeuner ou comme collation nutritive !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Info Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-bold text-center text-green-800 mb-8">À propos de notre entreprise</h2>
+                <div class="bg-green-50 p-6 rounded-lg">
+                    <p class="text-gray-700 mb-6">
+                        Les Farines Soringa sont fabriquées par DAIGNON GENERAL SOLUTIONS avec l'objectif de fournir une nutrition de qualité accessible à tous, peu importe l'âge ou le statut. Notre vision est de contribuer à la santé publique par une alimentation équilibrée et naturelle.
+                    </p>
+                    
+                    <h3 class="text-xl font-bold text-green-800 mb-4">Nos engagements :</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Offrir une nutrition saine et énergétique</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Renforcer le système immunitaire</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Contribuer à l'élimination du mauvais cholestérol</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Améliorer le bien-être des femmes enceintes, allaitantes, enfants et personnes âgées</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Points of Sale Section -->
+        <section id="points-vente" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-bold text-center text-green-800 mb-8">Points de Vente / Disponibilité</h2>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-bold text-green-800 mb-4">Où trouver les farines Soringa ?</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Dans toutes les pharmacies du Bénin</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Livraison disponible sur demande</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Basés à Bohicon, nous desservons toutes les localités du pays</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-700 mt-6 italic">
+                        Si une pharmacie ne l'a pas encore, contactez-nous directement.
+                    </p>
+                    <div class="mt-6 p-4 bg-yellow-50 rounded-md">
+                        <p class="text-gray-700 font-medium">NB: NOS FARINES SONT CONTRÔLÉES PAR LE LABORATOIRE DE L'ABSSA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Nos Récompenses</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div>
+                        <h3 class="text-xl font-bold text-green-800 mb-4">Nos prix</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">🏆</span>
+                                <span>Prix "OSEZ INNOVER" des AMBASSADE DES USA 2015</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">🏆</span>
+                                <span>PRIX ZINSOU POUR L'ENTREPRENEURIAT 2015</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">🏆</span>
+                                <span>MEILLEUR IDÉE DE PROJET PAR BPC/PNUD 2016</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">🏆</span>
+                                <span>LAUREAT PROJET BAOCHAIN 2020</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">🏆</span>
+                                <span>LAUREAT TONY ELUMELU FOUNDATION 2021</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">🏆</span>
+                                <span>1ER PRIX CONCOURS "PRODUIT LOCAL DU MOIS DE JUILLET" PAR LE LOCAL TV 2025</span>
+                            </li>
+                        </ul>
+                        <div><br><br>
+                                <p class="font-medium text-gray-700 mb-2">Quelque photos avec nos visiteurs</p>
+                                <img src="./images/boutique1.jpeg" alt="Quelque photos avec nos visiteur" class="w-full h-48 object-cover rounded-lg"><br>
+                                <img src="./images/boutique2.jpeg" alt="Quelque photos avec nos visiteur" class="w-full h-48 object-cover rounded-lg"><br>
+                                <img src="./images/boueique3.jpeg" alt="Quelque photos avec nos visiteur" class="w-full h-48 object-cover rounded-lg"><br>
+                            </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-green-800 mb-4">Nos événements</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="font-medium text-gray-700 mb-2">Foire de l'indépendance 2025</p>
+                                <img src="./images/foire-independance-2025.jpeg" alt="Foire de l'indépendance 2025" class="w-full h-48 object-cover rounded-lg">
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-700 mb-2">Exposition vente salon de l'emploi 2024</p>
+                                <img src="./images/salon-emploi-2024.jpeg" alt="Exposition vente salon de l'emploi 2024" class="w-full h-48 object-cover rounded-lg">
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-700 mb-2">Foire Biovalor 2023</p>
+                                <img src="./images/foire-biovalor-2023.jpeg" alt="Foire Biovalor 2023" class="w-full h-48 object-cover rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="temoignages" class="py-16 bg-green-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Témoignages</h2>
+                
+                <div class="relative max-w-4xl mx-auto overflow-hidden">
+                    <div class="flex transition-transform duration-300" id="testimonial-slider">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide min-w-full px-4">
+                            <div class="bg-white p-6 rounded-lg shadow-sm">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-yellow-400 text-2xl">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 italic mb-6">
+                                    "Depuis que mes enfants consomment la farine Soringa, ils tombent moins malades et ont retrouvé l'appétit."
+                                </p>
+                                <p class="text-gray-600 font-medium">-- Clarisse, mère de 3 enfants à Abomey</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide min-w-full px-4">
+                            <div class="bg-white p-6 rounded-lg shadow-sm">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-yellow-400 text-2xl">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 italic mb-6">
+                                    "J'avais des infections récurrentes. Avec Soringa, je me sens plus fort et plus énergique."
+                                </p>
+                                <p class="text-gray-600 font-medium">-- Bernard, enseignant à Bohicon</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-slide min-w-full px-4">
+                            <div class="bg-white p-6 rounded-lg shadow-sm">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-yellow-400 text-2xl">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 italic mb-6">
+                                    "J'utilise la farine Soringa depuis 3 mois et j'ai remarqué une vraie différence sur mon énergie et ma digestion. Le goût est délicieux en plus !"
+                                </p>
+                                <p class="text-gray-600 font-medium">-- Marie D., coiffeuse à Cotonou</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center mt-8 space-x-2">
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-green-700" data-slide="0"></button>
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-slide="1"></button>
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-bold text-center text-green-800 mb-8">Contactez-nous</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-gray-700 mb-6">
+                            Besoin d'informations, d'une commande spéciale ou de poser une question ? Contactez-nous directement :
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-green-600 mr-3"><i class="fas fa-phone"></i></span>
+                                <span>01 96 33 50 05</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-600 mr-3"><i class="fas fa-phone"></i></span>
+                                <span>01 95 50 87 85</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-600 mr-3"><i class="fas fa-envelope"></i></span>
+                                <span>fabricedaignon@gmail.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-600 mr-3"><i class="fab fa-whatsapp"></i></span>
+                                <a href="https://whatsapp.com/channel/0029VaArD4Q17Emo6ahVE01U" class="hover:underline">Notre chaine WhatsApp</a>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-600 mr-3"><i class="fab fa-whatsapp"></i></span>
+                                <a href="https://wa.me/message/IQU67E2PKSYRF1" class="hover:underline">Notre WhatsApp</a>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8">
+                            <h3 class="text-xl font-bold text-green-800 mb-4">Suivez-nous</h3>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/SoringaMarket?mibextid=ZbWKwL" class="text-green-700 hover:text-green-600 text-2xl" target="_blank">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@soringa229?_t=ZM-8yZxA1wd0Ja&_r=1" class="text-green-700 hover:text-green-600 text-2xl" target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <form class="bg-green-50 p-6 rounded-lg contact-form" id="contact-form">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2 font-medium">
+                                    <i class="fas fa-user mr-2 text-green-600"></i>Nom et prénom *
+                                </label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-base transition-all">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2 font-medium">
+                                    <i class="fas fa-envelope mr-2 text-green-600"></i>Email *
+                                </label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-base transition-all">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 mb-2 font-medium">
+                                    <i class="fas fa-tag mr-2 text-green-600"></i>Sujet *
+                                </label>
+                                <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-base transition-all">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2 font-medium">
+                                    <i class="fas fa-comment mr-2 text-green-600"></i>Message *
+                                </label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-base transition-all resize-vertical"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-green-700 text-white py-3 px-4 rounded-md hover:bg-green-600 transition-all duration-300 font-medium text-base flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-2"></i>Envoyer le message
+                            </button>
+                            <p class="text-sm text-gray-600 mt-3 text-center">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                Tous les champs marqués d'un * sont obligatoires
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">DAIGNON GENERAL SOLUTIONS</h3>
+                    <p class="text-green-200">© 2025 - Tous droits réservés</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-green-200 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#produits" class="text-green-200 hover:text-white transition">Produits</a></li>
+                        <li><a href="#points-vente" class="text-green-200 hover:text-white transition">Points de vente</a></li>
+                        <li><a href="#contact" class="text-green-200 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Légal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./politique-confidentialite.html" class="text-green-200 hover:text-white transition">Politique de confidentialité</a></li>
+                        <li><a href="./FAQ.html" class="text-green-200 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-green-700 mt-8 pt-8 text-center text-green-200">
+                <p>Fabriqué avec passion pour votre santé et bien-être</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
